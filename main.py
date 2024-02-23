@@ -97,3 +97,20 @@ class Solution:
                 squares[(r // 3, c // 3)].add(board[r][c])
 
         return True
+
+# Longest Consecutive Sequence
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        max = 0
+        curr = 0
+        nums = set(nums)
+        for n in nums:
+            if not ((n - 1) in nums):
+                curr = 1
+                i = 1
+                while n + i in nums:
+                    curr += 1
+                    i += 1
+            if curr > max:
+                max = curr
+        return max
